@@ -1,0 +1,533 @@
+:root {
+    --primary-color: #adf0d4;
+    --secondary-color: #1fd8a4;
+    --bg-color: #0d1512;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    transition-duration: 200ms;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--primary-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+    padding: 14px;
+}
+
+.darkerText {
+    color: var(--secondary-color);
+}
+
+header,
+main,
+footer {
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+header h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+p {
+    font-size: 1.05em;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+nav {
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+nav a {
+    cursor: pointer;
+    text-decoration: none;
+    position: relative; /* Allows pseudo-elements for animations */
+    font-size: 1rem; /* Base size */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for scaling and color */
+}
+
+nav a:hover {
+    transform: scale(1.05); /* Slight scaling effect */
+    opacity: 0.7;
+}
+
+nav a::after {
+    content: ''; /* Add an underline effect */
+    position: absolute;
+    left: 0;
+    bottom: -4px; /* Position the line just below the text */
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color); /* Line color */
+    transition: width 0.3s ease; /* Smooth underline animation */
+}
+
+nav a:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+main,
+section,
+.nameContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    gap: 64px;
+    padding-bottom: 64px;
+}
+
+section {
+    gap: 48px;
+}
+
+.nameContainer {
+    gap: 8px;
+}
+
+.statsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+}
+
+.imgContainer {
+    border-radius: 50%;
+    max-width: 114px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+}
+
+.imgContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.stats>div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stats div i {
+    font-size: 1.4em;
+}
+
+.stats div div {
+    display: grid;
+    place-items: center;
+    min-width: 40px;
+}
+
+.aboutMe {
+    line-height: 1.5em;
+}
+
+.outreach {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    width: fit-content;
+    margin-right: auto;
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.outreach:hover {
+    opacity: 0.7;
+}
+
+.outreach i {
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
+}
+
+.outreach:hover i {
+    transform: rotate(0deg);
+}
+
+.projectContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.headerText {
+    margin-bottom: 24px;
+}
+
+.projectContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Consistent spacing between project cards */
+    max-width: 700px;
+    margin: 0 auto; /* Center-align the container */
+}
+
+.projectItem {
+    display: flex;
+    align-items: stretch;
+    gap: 20px; /* Space between image and description */
+    
+    border-radius: 12px; /* Smooth rounded corners */
+    /* Add depth */
+    padding: 16px; /* Inner padding */
+    overflow: hidden; /* Prevent child elements from overflowing */
+}
+
+.projectItem div:first-child {
+    flex: 2; /* Allocate more space for the text */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px; /* Space between text elements */
+}
+
+.projectItem div:last-child {
+    flex: 1; /* Allocate space for the image */
+    max-width: 30%; /* Restrict image width */
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Smooth image scaling */
+}
+
+.projectItem img:hover {
+    transform: scale(1.1); /* Scale the image slightly on hover */
+}
+
+.linkContainer {
+    margin-top: auto; /* Push links to the bottom of the card */
+    display: flex;
+    gap: 14px; /* Space between multiple links */
+}
+
+.linkItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem; /* Base font size */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth scaling and color change */
+}
+
+.linkItem:hover {
+    transform: scale(1.1); /* Slight scaling on hover */
+    color: var(--secondary-color); /* Change link color on hover */
+}
+
+
+.skillsHeader {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 20px; /* Add space below the heading */
+    text-align: center; /* Center-align the heading */
+    width: 100%; /* Ensure it spans the full width */
+}
+
+.skillsContainer {
+    background-color: #0d1512;
+    position: relative; /* Position relative to contain absolutely positioned children */
+    min-height: 250px; /* Ensure container is tall enough to handle scaled items */
+    overflow: hidden; /* Hide anything outside the bounds */
+}
+
+.skillsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Keep gap consistent even during scaling */
+    justify-content: center;
+    position: relative;
+}
+
+.skillsList span {
+    background-color: #adf0d4;
+    color: #0d1512;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    position: relative; /* Relative positioning for animation */
+    transition: transform 0.3s ease-in-out; /* Smooth scaling transition */
+    animation: scalePulse 3s infinite ease-in-out; /* Apply scaling animation */
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+@keyframes scalePulse {
+    0%, 100% {
+        transform: scale(0.97); /* Start and end at normal size */
+    }
+    50% {
+        transform: scale(1.05); /* Grow by 20% */
+    }
+}
+
+.skillsList span:nth-child(2n) {
+    animation-delay: 0.1s; /* Stagger the animation timing for every second element */
+}
+
+.skillsList span:nth-child(3n) {
+    animation-delay: 0.5s; /* Further stagger for every third element */
+}
+.skillsList span:nth-child(4n) {
+    animation-delay: 0.9s;
+}
+.skillsList span:hover { 
+    animation-play-state: paused; /* Pause animation on hover */
+}
+
+
+.otherProjects {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.otherProjects h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.otherProjectList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.otherProjectItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background-color: #1b2623;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.otherProjectItem i {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.otherProjectItem a {
+    font-size: 0.99rem;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.otherProjectItem a:hover {
+    opacity: 0.8;
+}
+
+.otherProjectItem p {
+    margin: 0;
+    color: var(--secondary-color);
+    font-size: 0.99rem;
+}
+
+.certificationsContainer {
+    max-width: 700px; /* Ensure consistency with other sections */
+    margin: 0 auto;
+    width: 100%; /* Fill available width */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-color: var(--bg-color);
+}
+
+.certificationsList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.certificationItem {
+    display: flex;
+    align-items: center;
+    gap: 20px;   
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.certificationImage {
+    flex: 0 0 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+}
+
+.certificationImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.certificationDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    flex: 1;
+}
+
+.certificationDetails p {
+    margin: 0;
+    font-size: 1em;
+}
+
+.certificationDetails .darkerText {
+    font-size: 0.85em;
+}
+h3 {
+    font-size: 1.2rem; /* Same size as "More Projects" */
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: px; /* Add space below headings */
+    text-align: left; /* Align all headings to the left */
+}
+
+.educationContainer,
+.achievementsContainer {
+    margin-bottom: 48px;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 12px; /* Adjust this value to reduce the space */
+    text-align: left;
+}
+
+.educationList,
+.achievementsList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.educationItem {
+    background-color: #1b2623;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.educationHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.educationItem p {
+    color: var(--primary-color); /* Default color for the first line */
+    font-size: 1em; /* Default font size for the first line */
+}
+
+.educationItem p:nth-child(2) {
+    color: var(--secondary-color); /* Secondary color for the second line */
+    font-size: 0.95em; /* Smaller font size for the second line */
+}
+
+.educationItem p:nth-child(3) {
+    font-size: 1em; /* Optional: different font size for other lines if needed */
+}
+
+
+.achievementItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    background-color: #1b2623;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.achievementItem i {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.achievementItem p {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
+@media (min-width: 640px) {
+    .statsContainer {
+        flex-direction: row;
+    }
+
+    .stats {
+        gap: 0px;
+    }
+
+    .aboutMe {
+        width: 80%;
+        margin-right: auto;
+    }
+}
